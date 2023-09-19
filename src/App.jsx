@@ -1,13 +1,18 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import InputBox from './components/inputBox'
+import InputBox from './components'
+import useCurrencyInfo from './hooks/useCurrencyinfo'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [ amount, setAmount ] = useState(0)
+  const [ from , setFrom ] = useState('usd')
+  const [ to , setTo ] = useState("inr")
+  const [ convertedAmount , setConvertedAmount ] = useState(0)
 
-  return (
+  const currencyInfo = useCurrencyinfo(from)
+
+  const options = object.keys(currencyInfo)
+   return (
     <>
       <h1 className='text-3xl bg-orange-500'> Currecny Convertor </h1>
 
